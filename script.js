@@ -4,7 +4,7 @@ let btn = ["yellow", "red", "green", "purple"];
 let started = false;
 let level = 0;
 let h2 = document.querySelector("h2");
-let Start =document.querySelector("Start);
+let Start =document.querySelector("Start");
 
 document.addEventListener("click",function(){
   if (started == false) {
