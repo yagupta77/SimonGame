@@ -33,6 +33,9 @@ body{
 .userflash{
   background-color: chartreuse;
 }
+.Start{
+  border-radius: 2.5rem;
+}
 .Start:hover{
   background-color: black;
   color: #fff;
