@@ -1,5 +1,4 @@
-
-  let gameSeq = [];
+let gameSeq = [];
 let userSeq = [];
 let btn = ["yellow", "red", "green", "purple"];
 let started = false;
