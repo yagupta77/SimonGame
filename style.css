@@ -1,5 +1,9 @@
 body{
   text-align: center;
+  background-color: burlywood;
+ box-shadow: 0 0 12px rgba(255,255,255,0.4);
+ position: relative;
+}
   
 }
 .btn{
@@ -13,7 +17,7 @@ body{
 .btn-container{
   display: flex;
   justify-content: center;
-  box-shadow: 0 0 12px rgba(255,255,255,0.4);
+ 
 }
 .yellow{
   background-color: yellow;
@@ -33,11 +37,22 @@ body{
 .userflash{
   background-color: chartreuse;
 }
-.Start{
+#Start{
   border-radius: 2.5rem;
+ width:fit-content;
+ font-size:x-large;
+ padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+ margin-bottom: 0.5rem;
+ 
+
 }
-.Start:hover{
+#Start:hover{
+  cursor: pointer;
   background-color: black;
   color: #fff;
-  cursor: pointer;
 }
+    
+  #Start:active {
+    background-color: #3e8e41;
+    
+  }
