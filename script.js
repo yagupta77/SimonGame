@@ -1,3 +1,4 @@
+
 let gameSeq = [];
 let userSeq = [];
 let btn = ["yellow", "red", "green", "purple"];
@@ -9,8 +10,8 @@ startButton.addEventListener("click", function () { // Adding event listener for
   if (started == false) {
     console.log("Game Started");
     started = true;
-    levelUp();
   }
+  levelUp();
 });
 
 function Gameflash(btn) {
@@ -35,36 +36,41 @@ function levelUp() {
   // To choose Random Button
   let randomIdx = Math.floor(Math.random() * 4); // Fixing the off-by-one error
   let randomColor = btn[randomIdx];
+  console.log(randomColor)
   let randombtn = document.querySelector(`.${randomColor}`);
   gameSeq.push(randomColor);
+  console.log(gameSeq)
 
   Gameflash(randombtn);
 }
 
 function checkAns() {
-  console.log("current", level);
-
-  if (JSON.stringify(userSeq) === JSON.stringify(gameSeq)) { // Comparing entire sequences
-    if (userSeq.length == gameSeq.length) {
-      setTimeout(levelUp, 1000);
+        if (userSeq[userSeq.length - 1] !== gameSeq[userSeq.length - 1]) {
+            h2.innerText = `Game over! Your score: ${level}`;
+            document.querySelector("body").style.backgroundColor = "red";
+            reset();
+            setTimeout(function () {
+                location.reload()
+                document.querySelector("body").style.backgroundColor = "white";
+            }, 200);
+        } else if (userSeq.length === gameSeq.length) {
+            setTimeout(levelUp, 1000);
+        }
+        console.log(userSeq);
+        console.log(gameSeq);
     }
-  } else {
-    h2.innerText = `Game over! your score  ${level}`;
-    document.querySelector("body").style.backgroundColor = "red";
-    setTimeout(function () {
-      document.querySelector("body").style.backgroundColor = "white";
-    }, 150);
-    reset();
-  }
-}
+    
+
 
 function btnPress() {
   let btn = this;
+//   console.log(btn)
   userflash(btn);
   userColor = btn.getAttribute("id");
-
   userSeq.push(userColor);
   checkAns();
+  console.log(userSeq)
+//   console.log(gameSeq)
 }
 
 function reset() {
@@ -72,6 +78,7 @@ function reset() {
   gameSeq = [];
   userSeq = [];
   level = 0;
+//   location.reload()
 }
 
 let allbtn = document.querySelectorAll(".btn");
